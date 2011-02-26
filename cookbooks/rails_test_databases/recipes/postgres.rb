@@ -6,4 +6,5 @@ execute "Create postgres vagrant user" do
   not_if %[echo "select usename from pg_user" | psql | grep vagrant], :user => 'postgres'
 end
 
-
+# We need the following for the pg gem
+package "libpq-dev"
