@@ -1,0 +1,29 @@
+Restrict internet access
+    Add to put the following line under auto wlan0 or auto eth0 in /etc/network/interfaces
+        
+        pre-up iptables -A OUTPUT -p tcp -m owner --uid-owner username -j DROP
+
+    run command:
+    
+        sudo iptables -A OUTPUT -p tcp -m owner --uid-owner username -j DROP
+        
+
+Run code under a separate user that only has (full) access to it's own directory.
+
+    su travis_runner -c "source build_file"
+
+Completely empty this directory after each run
+
+    cp -r /home/travis_runner travis_runner.bak
+    cp -r travis_runner.bak /home/travis_runner
+    
+Have presetup databases that also are completely remove and setup after each run
+
+    DROP all travis databases
+    Create all travis database
+    
+    su josh -c "cd /home/josh; echo 'hi' > hi.txt; echo 'jeroen' >> hi.txt"
+    
+    
+* Set a timeout on the above command so hacking is harder and we don't have endless processes. 
+* Kill all processes by the travis runner on cleanup.
