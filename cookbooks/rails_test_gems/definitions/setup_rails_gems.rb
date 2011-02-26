@@ -6,9 +6,6 @@ define :setup_rails_gems do
 
   home = "/home/vagrant"
 
-  # FIXME Need to correct the permissions on the .gem dir
-  execute "chown -R vagrant:vagrant #{home}/.gem"
-
   %w(bundler rake rb-inotify).each do |gem_name|
     execute "Run bundle install for rails" do
       command "gem install #{gem_name}"
@@ -19,6 +16,9 @@ define :setup_rails_gems do
 
   # We need the following for the pg gem
   package "libpq-dev"
+
+  # FIXME Need to correct the permissions on the .gem dir
+  execute "chown -R vagrant:vagrant #{home}/.gem"
 
   execute "Run bundle install for rails" do
     command "bundle install"
