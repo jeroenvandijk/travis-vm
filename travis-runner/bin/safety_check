@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require 'travis-runner'
+
+Travis::Runner::Base.start

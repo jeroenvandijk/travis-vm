@@ -7,7 +7,7 @@ Vagrant::Config.run do |config|
     vm.memory_size = 1024
   end
   
-  config.vm.share_folder('travis-runner', 'travis-runner', 'travis-runner')
+  config.vm.share_folder('travis-runner', 'travis-vm', '.')
   
   config.vm.forward_port("ssh", 22, 1234)
   

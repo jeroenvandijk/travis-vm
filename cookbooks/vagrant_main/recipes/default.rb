@@ -4,12 +4,5 @@ require_recipe "build-essential"
 require_recipe "zlib"
 require_recipe "curl"
 
-require_recipe "rails_test_databases"
+require_recipe "travis_runner"
 
-require_recipe "rvm"
-
-node[:rubies].each do |version|
-  rvm_install version
-end
-
-rvm_default node[:rubies].first
