@@ -7,13 +7,14 @@ This is alpha work only use when you know what you are doing :)
 * Install Virtualbox v4
 * Clone this directory
 * Run the following commands
+
+```bash
+  gem install vagrant  
+  vagrant up
     
-    gem install vagrant
-    vagrant up
+  # wait a bit
     
-    # wait a bit
-    
-    vagrant ssh
-    cd travis-vm/travis-runner
-    bundle exec cucumber features
-  
+  vagrant ssh  
+  cd travis-vm/travis-runner  
+  bundle exec cucumber features
+```
