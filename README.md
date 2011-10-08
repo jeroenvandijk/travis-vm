@@ -8,12 +8,12 @@ This is alpha work only use when you know what you are doing :)
 * Clone this directory
 * Run the following commands
     
-    gem install vagrant
+    gem install vagrant  
     vagrant up
     
     # wait a bit
     
-    vagrant ssh
-    cd travis-vm/travis-runner
+    vagrant ssh  
+    cd travis-vm/travis-runner  
     bundle exec cucumber features
   
